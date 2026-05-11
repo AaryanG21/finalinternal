@@ -5,11 +5,10 @@
 
   tasks:
 
-    - name: Copy WAR file
+    - name: Copy WAR file to Tomcat
       copy:
-        src: /var/snap/jenkins/5022/workspace/finalinternal/target/finalinternal.war
+        src: "{{ lookup('env','WORKSPACE') }}/target/finalinternal.war"
         dest: /var/lib/tomcat9/webapps/finalinternal.war
-        remote_src: no
 
     - name: Restart Tomcat
       service:
