@@ -4,13 +4,14 @@
   become: yes
 
   tasks:
+
     - name: Copy WAR file to Tomcat
       copy:
-        src: "/var/snap/jenkins/5013/workspace/mvnwebapp/target/finalinternal.war"
-        dest: "/opt/tomcat/webapps/finalinternal.war"
+        src: /var/snap/jenkins/5013/workspace/finalinternal/target/finalinternal.war
+        dest: /var/lib/tomcat9/webapps/finalinternal.war
         remote_src: no
 
     - name: Restart Tomcat
-      systemd:
-        name: tomcat
+      service:
+        name: tomcat9
         state: restarted
