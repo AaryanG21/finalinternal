@@ -5,9 +5,9 @@
 
   tasks:
 
-    - name: Copy WAR file to Tomcat
+    - name: Copy WAR file
       copy:
-        src: /var/snap/jenkins/5013/workspace/finalinternal/target/finalinternal.war
+        src: /var/snap/jenkins/5022/workspace/finalinternal/target/finalinternal.war
         dest: /var/lib/tomcat9/webapps/finalinternal.war
         remote_src: no
 
