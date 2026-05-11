@@ -26,11 +26,11 @@ pipeline {
         }
 
         stage('Deploy') {
-            steps {
-                sh 'mvn clean package'  
-                sh 'ansible-playbook playbook.yml -i hosts.ini'
-            }
-        }       
+    steps {
+        sh 'mvn clean package'
+        sh 'ansible-playbook src/main/webapp/playbook.yml -i src/main/webapp/hosts.ini'
+    }
+}   
     }
 
     post {
