@@ -31,10 +31,10 @@ pipeline {
         }
 
         stage('Deploy') {
-            steps {
-                sh 'ansible-playbook playbook.yml -i hosts.ini'
-            }
-        }
+    steps {
+        sh 'ansible-playbook ansible/playbook.yml -i ansible/host.ini'
+    }
+}
     }
 
     post {
