@@ -8,9 +8,10 @@
     - name: Copy WAR file to Tomcat
       copy:
         src: "{{ lookup('env','WORKSPACE') }}/target/finalinternal.war"
-        dest: /var/lib/tomcat9/webapps/finalinternal.war
+        dest: /opt/tomcat/webapps/finalinternal.war
 
     - name: Restart Tomcat
-      service:
-        name: tomcat9
-        state: restarted
+      shell: |
+        /opt/tomcat/bin/shutdown.sh || true
+        sleep 3
+        /opt/tomcat/bin/startup.sh
