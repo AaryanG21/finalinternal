@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Archive'){
         steps{
-        archiveArtifacts artifacts: 'target/finalinternal.war', fingerprint=true
+        archiveArtifacts artifacts: '/var/snap/jenkins/5013/workspace/mvnwebapp/target/finalinternal.war', fingerprint=true
         }
         }
 
