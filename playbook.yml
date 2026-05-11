@@ -7,11 +7,12 @@
 
     - name: Copy WAR file to Tomcat
       copy:
-        src: "{{ lookup('env','WORKSPACE') }}/target/finalinternal.war"
-        dest: /opt/tomcat/webapps/finalinternal.war
+        src: target/Labinternal.war
+        dest: /opt/tomcat/webapps/Labinternal.war
+        remote_src: no
 
     - name: Restart Tomcat
       shell: |
         /opt/tomcat/bin/shutdown.sh || true
-        sleep 3
+        sleep 5
         /opt/tomcat/bin/startup.sh
